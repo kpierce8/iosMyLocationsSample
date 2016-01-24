@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		97353F221BFD8849003AF1F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97353F211BFD8849003AF1F2 /* AppDelegate.swift */; };
 		97353F241BFD8849003AF1F2 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97353F231BFD8849003AF1F2 /* CurrentLocationViewController.swift */; };
-		97353F261BFD8849003AF1F2 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97353F251BFD8849003AF1F2 /* SecondViewController.swift */; };
+		97353F261BFD8849003AF1F2 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97353F251BFD8849003AF1F2 /* LocationDetailsViewController.swift */; };
 		97353F291BFD8849003AF1F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97353F271BFD8849003AF1F2 /* Main.storyboard */; };
 		97353F2B1BFD8849003AF1F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97353F2A1BFD8849003AF1F2 /* Assets.xcassets */; };
 		97353F2E1BFD8849003AF1F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97353F2C1BFD8849003AF1F2 /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		97353F1E1BFD8849003AF1F2 /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97353F211BFD8849003AF1F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97353F231BFD8849003AF1F2 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
-		97353F251BFD8849003AF1F2 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		97353F251BFD8849003AF1F2 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
 		97353F281BFD8849003AF1F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97353F2A1BFD8849003AF1F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97353F2D1BFD8849003AF1F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 			children = (
 				97353F211BFD8849003AF1F2 /* AppDelegate.swift */,
 				97353F231BFD8849003AF1F2 /* CurrentLocationViewController.swift */,
-				97353F251BFD8849003AF1F2 /* SecondViewController.swift */,
+				97353F251BFD8849003AF1F2 /* LocationDetailsViewController.swift */,
 				97353F271BFD8849003AF1F2 /* Main.storyboard */,
 				97353F2A1BFD8849003AF1F2 /* Assets.xcassets */,
 				97353F2C1BFD8849003AF1F2 /* LaunchScreen.storyboard */,
@@ -99,6 +99,7 @@
 				TargetAttributes = {
 					97353F1D1BFD8849003AF1F2 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 42F6Y56UC5;
 					};
 				};
 			};
@@ -138,7 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97353F261BFD8849003AF1F2 /* SecondViewController.swift in Sources */,
+				97353F261BFD8849003AF1F2 /* LocationDetailsViewController.swift in Sources */,
 				97353F221BFD8849003AF1F2 /* AppDelegate.swift in Sources */,
 				97353F241BFD8849003AF1F2 /* CurrentLocationViewController.swift in Sources */,
 			);
@@ -183,7 +184,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ken Pierce (6J336H4KJ4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ken Pierce (6J336H4KJ4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -227,6 +229,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ken Pierce (6J336H4KJ4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -251,10 +254,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyLocations/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.franticgoose.MyLocations;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -262,10 +268,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyLocations/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.franticgoose.MyLocations;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -288,6 +297,7 @@
 				97353F341BFD8849003AF1F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
