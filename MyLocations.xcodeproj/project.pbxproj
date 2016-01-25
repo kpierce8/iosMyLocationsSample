@@ -20,6 +20,7 @@
 		97E79A421C55B5970082FAB8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E79A401C55B5970082FAB8 /* Location.swift */; };
 		97E79A441C55B7240082FAB8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E79A431C55B7240082FAB8 /* CoreDataStack.swift */; };
 		97E79A461C55E5950082FAB8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E79A451C55E5950082FAB8 /* Functions.swift */; };
+		97E79A481C55EBAC0082FAB8 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E79A471C55EBAC0082FAB8 /* LocationsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		97E79A401C55B5970082FAB8 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		97E79A431C55B7240082FAB8 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		97E79A451C55E5950082FAB8 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		97E79A471C55EBAC0082FAB8 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				97353F211BFD8849003AF1F2 /* AppDelegate.swift */,
 				97353F231BFD8849003AF1F2 /* CurrentLocationViewController.swift */,
 				97353F251BFD8849003AF1F2 /* LocationDetailsViewController.swift */,
+				97E79A471C55EBAC0082FAB8 /* LocationsViewController.swift */,
 				97E79A3A1C559B250082FAB8 /* CategoriesViewController.swift */,
 				97E79A381C5592940082FAB8 /* HelperFunctions.swift */,
 				97353F271BFD8849003AF1F2 /* Main.storyboard */,
@@ -164,6 +167,7 @@
 				97E79A411C55B5970082FAB8 /* Location+CoreDataProperties.swift in Sources */,
 				97E79A421C55B5970082FAB8 /* Location.swift in Sources */,
 				97E79A461C55E5950082FAB8 /* Functions.swift in Sources */,
+				97E79A481C55EBAC0082FAB8 /* LocationsViewController.swift in Sources */,
 				97E79A441C55B7240082FAB8 /* CoreDataStack.swift in Sources */,
 				97E79A391C5592940082FAB8 /* HelperFunctions.swift in Sources */,
 				97353F221BFD8849003AF1F2 /* AppDelegate.swift in Sources */,
