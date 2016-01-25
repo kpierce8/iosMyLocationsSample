@@ -13,6 +13,13 @@
 		97353F291BFD8849003AF1F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97353F271BFD8849003AF1F2 /* Main.storyboard */; };
 		97353F2B1BFD8849003AF1F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97353F2A1BFD8849003AF1F2 /* Assets.xcassets */; };
 		97353F2E1BFD8849003AF1F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97353F2C1BFD8849003AF1F2 /* LaunchScreen.storyboard */; };
+		97E79A391C5592940082FAB8 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E79A381C5592940082FAB8 /* HelperFunctions.swift */; };
+		97E79A3B1C559B250082FAB8 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E79A3A1C559B250082FAB8 /* CategoriesViewController.swift */; };
+		97E79A3E1C55B41D0082FAB8 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 97E79A3C1C55B41D0082FAB8 /* DataModel.xcdatamodeld */; };
+		97E79A411C55B5970082FAB8 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E79A3F1C55B5970082FAB8 /* Location+CoreDataProperties.swift */; };
+		97E79A421C55B5970082FAB8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E79A401C55B5970082FAB8 /* Location.swift */; };
+		97E79A441C55B7240082FAB8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E79A431C55B7240082FAB8 /* CoreDataStack.swift */; };
+		97E79A461C55E5950082FAB8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E79A451C55E5950082FAB8 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,13 @@
 		97353F2A1BFD8849003AF1F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97353F2D1BFD8849003AF1F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97353F2F1BFD8849003AF1F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97E79A381C5592940082FAB8 /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		97E79A3A1C559B250082FAB8 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		97E79A3D1C55B41D0082FAB8 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		97E79A3F1C55B5970082FAB8 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		97E79A401C55B5970082FAB8 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		97E79A431C55B7240082FAB8 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		97E79A451C55E5950082FAB8 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +54,9 @@
 		97353F151BFD8849003AF1F2 = {
 			isa = PBXGroup;
 			children = (
+				97E79A431C55B7240082FAB8 /* CoreDataStack.swift */,
+				97E79A3F1C55B5970082FAB8 /* Location+CoreDataProperties.swift */,
+				97E79A401C55B5970082FAB8 /* Location.swift */,
 				97353F201BFD8849003AF1F2 /* MyLocations */,
 				97353F1F1BFD8849003AF1F2 /* Products */,
 			);
@@ -59,10 +76,14 @@
 				97353F211BFD8849003AF1F2 /* AppDelegate.swift */,
 				97353F231BFD8849003AF1F2 /* CurrentLocationViewController.swift */,
 				97353F251BFD8849003AF1F2 /* LocationDetailsViewController.swift */,
+				97E79A3A1C559B250082FAB8 /* CategoriesViewController.swift */,
+				97E79A381C5592940082FAB8 /* HelperFunctions.swift */,
 				97353F271BFD8849003AF1F2 /* Main.storyboard */,
 				97353F2A1BFD8849003AF1F2 /* Assets.xcassets */,
 				97353F2C1BFD8849003AF1F2 /* LaunchScreen.storyboard */,
 				97353F2F1BFD8849003AF1F2 /* Info.plist */,
+				97E79A3C1C55B41D0082FAB8 /* DataModel.xcdatamodeld */,
+				97E79A451C55E5950082FAB8 /* Functions.swift */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -140,8 +161,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				97353F261BFD8849003AF1F2 /* LocationDetailsViewController.swift in Sources */,
+				97E79A411C55B5970082FAB8 /* Location+CoreDataProperties.swift in Sources */,
+				97E79A421C55B5970082FAB8 /* Location.swift in Sources */,
+				97E79A461C55E5950082FAB8 /* Functions.swift in Sources */,
+				97E79A441C55B7240082FAB8 /* CoreDataStack.swift in Sources */,
+				97E79A391C5592940082FAB8 /* HelperFunctions.swift in Sources */,
 				97353F221BFD8849003AF1F2 /* AppDelegate.swift in Sources */,
+				97E79A3E1C55B41D0082FAB8 /* DataModel.xcdatamodeld in Sources */,
 				97353F241BFD8849003AF1F2 /* CurrentLocationViewController.swift in Sources */,
+				97E79A3B1C559B250082FAB8 /* CategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +328,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		97E79A3C1C55B41D0082FAB8 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				97E79A3D1C55B41D0082FAB8 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 97E79A3D1C55B41D0082FAB8 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 97353F161BFD8849003AF1F2 /* Project object */;
 }
