@@ -23,8 +23,22 @@ class LocationDetailsViewController: UITableViewController {
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placemark: CLPlacemark?
     var categoryName = "No Category"
+    var descriptionText = ""
+    var date: NSDate?
     var coreDataStack = CoreDataStack()
     var managedObjectContext: NSManagedObjectContext!
+    var locationToEdit: Location? {
+        didSet {
+            if let location = locationToEdit {
+                descriptionText = location.locationDescription
+                categoryName = location.category
+                date = location.date
+                coordinate = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+                placemark = location.placemark
+            }
+        }
+    }
+    var descriptionEdit = ""
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
@@ -62,10 +76,20 @@ class LocationDetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
        super.viewDidLoad()
+        
+        let location: Location
+        if let temp = locationToEdit {
+            location = temp
+        } else {
+            location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: coreDataStack.context) as! Location
+            
+        }
+        
+        
         let hf = HelperFunctions()
         longitudeLabel.text = String(format: "%.8f", coordinate.longitude)
         latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
-        descriptionTextView.text = ""
+        descriptionTextView.text = descriptionText
         categoryLabel.text = categoryName
         
         if let placemark = placemark {
