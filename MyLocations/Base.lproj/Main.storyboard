@@ -296,7 +296,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6SE-iv-k6D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1695" y="-32"/>
+            <point key="canvasLocation" x="1815" y="344"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="9eP-gA-Dl5">
@@ -380,6 +380,9 @@
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
+                                <connections>
+                                    <outlet property="delegate" destination="Yx7-DE-Hhf" id="kJA-lN-IFB"/>
+                                </connections>
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -387,11 +390,12 @@
                     <tabBarItem key="tabBarItem" title="Map" id="4aa-X9-15S" userLabel="Map"/>
                     <connections>
                         <outlet property="mapView" destination="sXr-iw-DTN" id="QDl-b7-jib"/>
+                        <segue destination="1Eo-vs-bbL" kind="modal" identifier="EditLocation" id="Klq-pS-lqP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0An-Fe-jqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="615" y="1198"/>
+            <point key="canvasLocation" x="719" y="1184"/>
         </scene>
         <!--Locations-->
         <scene sceneID="qLx-Rs-YsR">
@@ -420,7 +424,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" textLabel="rRW-An-E1k" style="IBUITableViewCellStyleDefault" id="eVY-bn-Tez">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eVY-bn-Tez" id="4ty-1b-gc7">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -450,7 +454,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNq-6X-5un" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pb5-I0-oQN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2144" y="-32"/>
+            <point key="canvasLocation" x="2348" y="344"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -488,13 +492,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvf-9g-Xcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1250" y="-26"/>
+            <point key="canvasLocation" x="1330" y="454"/>
         </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ufF-PF-yXi"/>
+        <segue reference="Klq-pS-lqP"/>
     </inferredMetricsTieBreakers>
 </document>
