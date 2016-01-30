@@ -27,7 +27,7 @@ class LocationsViewController: UITableViewController {
         fetchRequest.sortDescriptors = [sortDescriptor1, sortDescriptor]
         fetchRequest.fetchBatchSize = 20
         
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.coredataStack.context, sectionNameKeyPath: "category" , cacheName: "Locations")
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.coredataStack.context, sectionNameKeyPath: "category" , cacheName: nil)
         
         fetchedResultsController.delegate = self
         return fetchedResultsController

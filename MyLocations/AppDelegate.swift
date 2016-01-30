@@ -16,8 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
        
-        _ = CoreDataStack()
+        var coreDataStack = CoreDataStack()
+  //      let tabBarController = window!.rootViewController as! UITabBarController
         
+  //      if let tabBarViewControllers = tabBarController.viewControllers {
+  //          let currentViewController = tabBarController.viewControllers[0] as! CurrentLocationViewController
+  //          currentViewController
+            
+  //      }
+        
+  //      let mapViewController = tabBarViewControllers[2] as! MapViewController
+  //      mapViewController.managedObjectContext = coreDataStack.context
         
         return true
     }

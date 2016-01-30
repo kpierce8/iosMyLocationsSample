@@ -48,7 +48,14 @@ class LocationDetailsViewController: UITableViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
 
     @IBAction func done(){
-        let location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: coreDataStack.context) as! Location
+        let location: Location
+        if let temp = locationToEdit {
+            location = temp
+        } else {
+            location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: managedObjectContext) as! Location
+            
+        }
+
         
         location.locationDescription = descriptionTextView.text
         location.category = categoryName
@@ -58,7 +65,7 @@ class LocationDetailsViewController: UITableViewController {
         location.placemark = placemark
         
         do {
-            try coreDataStack.context.save()
+            try managedObjectContext.save()
         } catch {
             fatalError("Error: \(error)")
         }
@@ -77,13 +84,10 @@ class LocationDetailsViewController: UITableViewController {
     override func viewDidLoad() {
        super.viewDidLoad()
         
-        let location: Location
-        if let temp = locationToEdit {
-            location = temp
-        } else {
-            location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: coreDataStack.context) as! Location
-            
-        }
+      //  let location: Location
+      //  if let temp = locationToEdit {
+      //      location = temp
+      //  }
         
         
         let hf = HelperFunctions()
@@ -125,6 +129,7 @@ class LocationDetailsViewController: UITableViewController {
         if segue.identifier == "PickCategory" {
             let controller = segue.destinationViewController as! CategoriesViewController
             controller.selectedcategory = categoryName
+            
         }
     }
     

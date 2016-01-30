@@ -279,7 +279,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             let controller = navigationController.topViewController as! LocationDetailsViewController
             controller.coordinate = location!.coordinate
             controller.placemark = placemark
-            controller.managedObjectContext = coreDataStack.context
+            controller.coreDataStack.context = coreDataStack.context
         }
     }
 }

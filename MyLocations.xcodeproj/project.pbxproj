@@ -13,6 +13,8 @@
 		97353F291BFD8849003AF1F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97353F271BFD8849003AF1F2 /* Main.storyboard */; };
 		97353F2B1BFD8849003AF1F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97353F2A1BFD8849003AF1F2 /* Assets.xcassets */; };
 		97353F2E1BFD8849003AF1F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97353F2C1BFD8849003AF1F2 /* LaunchScreen.storyboard */; };
+		976851271C5B3BC2007032B0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976851261C5B3BC2007032B0 /* MapKit.framework */; };
+		976851291C5B3C19007032B0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976851281C5B3C19007032B0 /* MapViewController.swift */; };
 		97E79A391C5592940082FAB8 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E79A381C5592940082FAB8 /* HelperFunctions.swift */; };
 		97E79A3B1C559B250082FAB8 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E79A3A1C559B250082FAB8 /* CategoriesViewController.swift */; };
 		97E79A3E1C55B41D0082FAB8 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 97E79A3C1C55B41D0082FAB8 /* DataModel.xcdatamodeld */; };
@@ -33,6 +35,8 @@
 		97353F2A1BFD8849003AF1F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97353F2D1BFD8849003AF1F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97353F2F1BFD8849003AF1F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		976851261C5B3BC2007032B0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		976851281C5B3C19007032B0 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		97E79A381C5592940082FAB8 /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		97E79A3A1C559B250082FAB8 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		97E79A3D1C55B41D0082FAB8 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				976851271C5B3BC2007032B0 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +63,7 @@
 		97353F151BFD8849003AF1F2 = {
 			isa = PBXGroup;
 			children = (
+				976851261C5B3BC2007032B0 /* MapKit.framework */,
 				97E79A431C55B7240082FAB8 /* CoreDataStack.swift */,
 				97E79A3F1C55B5970082FAB8 /* Location+CoreDataProperties.swift */,
 				97E79A401C55B5970082FAB8 /* Location.swift */,
@@ -84,6 +90,7 @@
 				97E79A3A1C559B250082FAB8 /* CategoriesViewController.swift */,
 				97E79A491C58783A0082FAB8 /* LocationCell.swift */,
 				97E79A381C5592940082FAB8 /* HelperFunctions.swift */,
+				976851281C5B3C19007032B0 /* MapViewController.swift */,
 				97353F271BFD8849003AF1F2 /* Main.storyboard */,
 				97353F2A1BFD8849003AF1F2 /* Assets.xcassets */,
 				97353F2C1BFD8849003AF1F2 /* LaunchScreen.storyboard */,
@@ -172,6 +179,7 @@
 				97E79A461C55E5950082FAB8 /* Functions.swift in Sources */,
 				97E79A481C55EBAC0082FAB8 /* LocationsViewController.swift in Sources */,
 				97E79A441C55B7240082FAB8 /* CoreDataStack.swift in Sources */,
+				976851291C5B3C19007032B0 /* MapViewController.swift in Sources */,
 				97E79A4A1C58783A0082FAB8 /* LocationCell.swift in Sources */,
 				97E79A391C5592940082FAB8 /* HelperFunctions.swift in Sources */,
 				97353F221BFD8849003AF1F2 /* AppDelegate.swift in Sources */,
