@@ -59,6 +59,7 @@ class LocationDetailsViewController: UITableViewController {
             location = temp
         } else {
             location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: managedObjectContext) as! Location
+            location.photoID = nil
         }
         
         location.locationDescription = descriptionTextView.text
@@ -67,6 +68,21 @@ class LocationDetailsViewController: UITableViewController {
         location.longitude = coordinate.longitude
         location.date = NSDate()
         location.placemark = placemark
+        
+        if let image = image {
+            if !location.hasPhoto {
+                location.photoID = Location.nextPhotoID()
+            }
+            
+            if let data = UIImageJPEGRepresentation(image, 0.5) {
+            
+            do {
+                try data.writeToFile(location.photoPath, options:  .DataWritingAtomic)
+            } catch {
+                print ("error writing file \(error)")
+                }
+            }
+        }
         
         do {
             try managedObjectContext.save()
@@ -88,6 +104,17 @@ class LocationDetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
        super.viewDidLoad()
+        
+        if let location = locationToEdit {
+            title = "Edit Location"
+            if location.hasPhoto {
+                if let image = location.photoImage {
+                    showImage(image)
+                }
+            }
+        }
+        
+        
         
         let hf = HelperFunctions()
         longitudeLabel.text = String(format: "%.8f", coordinate.longitude)
