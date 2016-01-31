@@ -34,14 +34,12 @@ class MapViewController: UIViewController {
             showLocations()
         }
     }
+
     
     @IBOutlet   weak var mapView: MKMapView!
     
-
-    
     @IBAction func showUser(){
         let region = MKCoordinateRegionMakeWithDistance(mapView.userLocation.coordinate, 1000, 1000)
-        
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
     }
     
@@ -57,11 +55,8 @@ class MapViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "EditLocation" {
             let navigationController = segue.destinationViewController as! UINavigationController
-            
             let controller = navigationController.topViewController as! LocationDetailsViewController
-            
             controller.coreDataStack.context = coreDataStack.context
-            
             let button = sender as! UIButton
             let location = locations[button.tag]
             controller.locationToEdit = location
@@ -70,14 +65,13 @@ class MapViewController: UIViewController {
     
     func updateLocations() {
         mapView.removeAnnotations(locations)
-        
         let entity = NSEntityDescription.entityForName("Location", inManagedObjectContext: coreDataStack.context)
     
         let fetchRequest = NSFetchRequest()
-    fetchRequest.entity = entity
+        fetchRequest.entity = entity
     
-    locations = try! coreDataStack.context.executeFetchRequest(fetchRequest) as! [Location]
-    mapView.addAnnotations(locations)
+        locations = try! coreDataStack.context.executeFetchRequest(fetchRequest) as! [Location]
+        mapView.addAnnotations(locations)
     }
 
     func regionForAnnotation(annotations: [MKAnnotation]) -> MKCoordinateRegion {
@@ -113,8 +107,6 @@ class MapViewController: UIViewController {
         }
         return mapView.regionThatFits(region)
     }
-
-
 }
 
 

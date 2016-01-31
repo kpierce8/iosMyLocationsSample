@@ -17,13 +17,10 @@ class LocationsViewController: UITableViewController {
 
     lazy var fetchedResultsController: NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest()
-        
         let entity = NSEntityDescription.entityForName("Location", inManagedObjectContext: self.coredataStack.context)
-        
         fetchRequest.entity = entity
         let sortDescriptor1 = NSSortDescriptor(key: "category", ascending: true)
-
-         let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor1, sortDescriptor]
         fetchRequest.fetchBatchSize = 20
         
@@ -31,7 +28,6 @@ class LocationsViewController: UITableViewController {
         
         fetchedResultsController.delegate = self
         return fetchedResultsController
-        
     }()
     
     func performFetch(){

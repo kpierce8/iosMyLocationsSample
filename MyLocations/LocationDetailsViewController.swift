@@ -53,9 +53,7 @@ class LocationDetailsViewController: UITableViewController {
             location = temp
         } else {
             location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: managedObjectContext) as! Location
-            
         }
-
         
         location.locationDescription = descriptionTextView.text
         location.category = categoryName
