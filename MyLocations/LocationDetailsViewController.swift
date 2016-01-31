@@ -27,6 +27,10 @@ class LocationDetailsViewController: UITableViewController {
     var date: NSDate?
     var coreDataStack = CoreDataStack()
     var managedObjectContext: NSManagedObjectContext!
+    var descriptionEdit = ""
+    var image: UIImage!
+    var observer: AnyObject!
+    
     var locationToEdit: Location? {
         didSet {
             if let location = locationToEdit {
@@ -38,7 +42,7 @@ class LocationDetailsViewController: UITableViewController {
             }
         }
     }
-    var descriptionEdit = ""
+  
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
@@ -46,6 +50,8 @@ class LocationDetailsViewController: UITableViewController {
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addPhotoLabel: UILabel!
 
     @IBAction func done(){
         let location: Location
@@ -71,6 +77,7 @@ class LocationDetailsViewController: UITableViewController {
           self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
+    
     @IBAction func cancel(){
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -81,12 +88,6 @@ class LocationDetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
        super.viewDidLoad()
-        
-      //  let location: Location
-      //  if let temp = locationToEdit {
-      //      location = temp
-      //  }
-        
         
         let hf = HelperFunctions()
         longitudeLabel.text = String(format: "%.8f", coordinate.longitude)
@@ -101,12 +102,20 @@ class LocationDetailsViewController: UITableViewController {
         }
         dateLabel.text = formatDate(NSDate())
         managedObjectContext = coreDataStack.context
+        listenForBackgroundNotification()
     }
 
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 0 && indexPath == 0 {
             return 88
+        } else if indexPath.section == 1 {
+            if imageView.hidden {
+                return 44
+            } else {
+                return 280
+            }
+        
         } else if indexPath.section == 2 && indexPath.row == 2 {
             addressLabel.frame.size = CGSize(width: view.bounds.size.width - 115, height: 10000)
             addressLabel.sizeToFit()
@@ -118,11 +127,26 @@ class LocationDetailsViewController: UITableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            descriptionTextView.becomeFirstResponder()
+        }
+        else if indexPath.section == 1 && indexPath.row == 0 {
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            pickPhoto()
+        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(observer)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "PickCategory" {
             let controller = segue.destinationViewController as! CategoriesViewController
@@ -137,5 +161,85 @@ class LocationDetailsViewController: UITableViewController {
         categoryName = controller.selectedcategory
         categoryLabel.text = categoryName
     }
-}
 
+    func showImage(image: UIImage) {
+        imageView.image = image
+        imageView.hidden = false
+        imageView.frame = CGRect(x: 10, y: 10, width: 260, height: 260)
+        addPhotoLabel.hidden = true
+    }
+    
+    //Complicated retain cycle stuff here p.239 of sample code ios apprentice sample 3
+    func listenForBackgroundNotification() {
+        observer = NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationDidEnterBackgroundNotification, object: nil, queue: NSOperationQueue.mainQueue())  { [weak self] _ in
+            
+            if let strongSelf = self {
+                    if strongSelf.presentedViewController != nil {
+                strongSelf.dismissViewControllerAnimated(false, completion: nil)
+            }
+            
+            strongSelf.descriptionTextView.resignFirstResponder()
+            }
+        
+        }
+    }
+
+} // End class declaration
+
+
+
+extension  LocationDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func takePhotoWithCamera() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .Camera
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func choosePhotoFromLibrary() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .PhotoLibrary
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+      
+        image = info[UIImagePickerControllerEditedImage] as? UIImage
+        
+        if let image = image {
+            showImage(image)
+        }
+        
+        tableView.reloadData()
+        dismissViewControllerAnimated(true, completion: nil )
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func pickPhoto() {
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            showPhotoMenu()
+        } else {
+            choosePhotoFromLibrary()
+        }
+    }
+    
+    func showPhotoMenu(){
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .Default, handler: { _ in self.takePhotoWithCamera()})
+        alertController.addAction(takePhotoAction)
+        let chooseFromLibraryAction = UIAlertAction(title: "Choose From Library", style: .Default, handler: { _ in self.choosePhotoFromLibrary()})
+        alertController.addAction(chooseFromLibraryAction)
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+//End of extension
+}
